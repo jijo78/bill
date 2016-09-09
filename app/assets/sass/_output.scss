@@ -1,0 +1,19 @@
+.output{
+  .output__item{
+    color: #fff;
+    background-color: $light-blue;
+    margin: $size-small $reset;
+    display: flex;
+    border-top: 1px solid #ccc;
+    &:hover{
+      background-color: $medium-blue;
+      text-decoration: none;
+      transition: background 1.5s;
+    }
+    
+    .output__item--text{
+      text-align: left;
+      padding: $reset $size-small;
+    }
+  }
+}

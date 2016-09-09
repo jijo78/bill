@@ -1,0 +1,17 @@
+<script id="output-results" type="text/x-handlebars-template">
+    \{{#each programmes}}
+        <a href="http://www.bbc.co.uk/programmes/\{{pid}}">
+          <article class="output__item">
+            <img alt="\{{title}}" src="https://ichef.bbci.co.uk/images/ic/256xn/\{{image.pid}}.jpg">
+            <div class="output__item--text">
+              <h2>\{{ title}}</h2>
+              <p>\{{ short_synopsis }}</p>
+              \{{#if is_available}}
+                <small>Available on \{{ ownership.service.title }}</small>
+              \{{/if}}
+            </div>
+          </article>
+        </a>
+    \{{/each}}
+</script>
+<section class="output"></section>
