@@ -109,9 +109,9 @@
      * addEvent is an helper function that addEventListener to an element
      * @param  {[array]}   arr          Array
      * @param  {[type]}   callBackArg   String
-     * @param  {Function} newArr        Array
+     * @param  {[array]} newArr        Array
      */
-    CustomerBill.prototype.addEvent = function ( arr, callBackArg ,newArr ) {
+    CustomerBill.prototype.data = function ( arr, callBackArg ,newArr ) {
       arr.forEach( function( callBackArg ) {
         newArr.push(callBackArg);
       });

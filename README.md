@@ -1,6 +1,6 @@
 # bbc-test
 ##To checkout
-* git clone git@github.com:jijo78/bbc-test.git
+* git clone git@github.com:jijo78/bill.git
 
 ##To run
 * grunt
