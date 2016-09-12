@@ -1,17 +1,71 @@
 <script id="output-results" type="text/x-handlebars-template">
-    \{{#each programmes}}
-        <a href="http://www.bbc.co.uk/programmes/\{{pid}}">
+  <section class="output__item--wrap">
+    <ul>
+      <li>Bill due: \{{ billDue }}</li>
+      <li>Period from: \{{ billFrom }}</li>
+      <li>To: \{{ billTo }}</li>
+    </ul>
+    <h2 class="text-right">Total for this month &pound; \{{ total }}</h2>
+  </section>
+  <section class="output__item--wrap">
+    <h3 class="text-right">Call Charges</h3>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th class="text-center">Number called</th>
+            <th class="text-center">Call duration</th>
+            <th class="text-center">Call cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          \{{#each calls}}
+          <tr>
+            <td>\{{ called }}</td>
+            <td>\{{ duration }}</td>
+            <td> &pound; \{{ cost }}</td>
+          </tr>
+        \{{/each}}
+        </tbody>
+      </table>
+    </div>
+    <p>Total for your calls &pound; \{{ callsTotal }}</p>
+  </section>
+  <section class="output__item--wrap">
+    <h3 class="text-right">Your subscriptions</h3>
+    \{{#each packages}}
+
           <article class="output__item">
-            <img alt="\{{title}}" src="https://ichef.bbci.co.uk/images/ic/256xn/\{{image.pid}}.jpg">
             <div class="output__item--text">
-              <h2>\{{ title}}</h2>
-              <p>\{{ short_synopsis }}</p>
-              \{{#if is_available}}
-                <small>Available on \{{ ownership.service.title }}</small>
-              \{{/if}}
+              <h3>\{{ type }}</h3>
+              <p>\{{ name }}</p>
+              <p>&pound; \{{ cost }}</p>
             </div>
           </article>
-        </a>
-    \{{/each}}
+          \{{/each}}
+
+    <p>Total for this subscription &pound; \{{ packagesTotal }}</p>
+  </section>
+  <section class="output__item--wrap">
+    <h3 class="text-right">Your skyStore</h3>
+      \{{#each storeRentals}}
+        <article class="output__item">
+            <div class="output__item--text">
+              <h2>Movie title: \{{ title }}</h2>
+              <p>&pound; \{{ cost }}</p>
+            </div>
+        </article>
+      \{{/each}}
+
+      \{{#each storeBuyAndKeep}}
+        <article class="output__item">
+            <div class="output__item--text">
+              <h2>Movie title: \{{ title }}</h2>
+              <p>&pound; \{{ cost }}</p>
+            </div>
+        </article>
+      \{{/each}}
+    <p>Total for this subscription &pound; \{{ storeTotal }}</p>
+  </section>
 </script>
 <section class="output"></section>

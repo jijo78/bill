@@ -1,0 +1,48 @@
+{
+  "name": "my-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "postinstall": "grunt ci"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jijo78/bill.git"
+  },
+  "author": "Giuseppe De Marino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jijo78/bill/issues"
+  },
+  "homepage": "https://github.com/jijo78/bill",
+  "dependencies": {
+    "debug": "^2.2.0",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-exec": "^0.4.7",
+    "grunt-sass": "^1.2.0",
+    "handlebars": "^4.0.5",
+    "express-handlebars": "*",
+    "express": "^4.13.4",
+    "mocha": "^3.0.2"
+  },
+  "devDependencies": {
+    "express": "^4.13.4",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-exec": "^0.4.7",
+    "grunt-sass": "^1.2.0",
+    "mocha": "^3.0.2",
+    "nodemon": "^1.9.2"
+  },
+  "engines": {
+    "node": "0.12.0",
+    "npm": "2.5.1"
+  }
+}
