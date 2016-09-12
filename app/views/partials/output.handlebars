@@ -1,18 +1,18 @@
 <script id="output-results" type="text/x-handlebars-template">
   <section class="output__item--wrap">
     <ul>
-      <li>Bill due: \{{ billDue }}</li>
-      <li>Period from: \{{ billFrom }}</li>
-      <li>To: \{{ billTo }}</li>
+      <li>Bill due: <strong>\{{ billDue }}</strong></li>
+      <li>From: <strong>\{{ billFrom }}</strong></li>
+      <li>To: <strong>\{{ billTo }}</strong></li>
     </ul>
-    <h2 class="text-right">Total for this month &pound; \{{ total }}</h2>
+    <h2>Total for this month &pound; \{{ total }}</h2>
   </section>
-  <section class="output__item--wrap">
-    <h3 class="text-right">Call Charges</h3>
+  <section class="output__item--wrap col-md-4 col-xs-12">
+    <h3 class="text-center">Call Charges</h3>
     <div class="table-responsive">
       <table class="table table-striped">
         <thead>
-          <tr>
+          <tr class="info">
             <th class="text-center">Number called</th>
             <th class="text-center">Call duration</th>
             <th class="text-center">Call cost</th>
@@ -20,7 +20,7 @@
         </thead>
         <tbody>
           \{{#each calls}}
-          <tr>
+          <tr class="info">
             <td>\{{ called }}</td>
             <td>\{{ duration }}</td>
             <td> &pound; \{{ cost }}</td>
@@ -29,30 +29,27 @@
         </tbody>
       </table>
     </div>
-    <p>Total for your calls &pound; \{{ callsTotal }}</p>
+    <p >Total for your calls <strong>&pound; \{{ callsTotal }}</strong></p>
   </section>
-  <section class="output__item--wrap">
-    <h3 class="text-right">Your subscriptions</h3>
+  <section class="output__item--wrap col-md-4 col-xs-12">
+    <h3 class="text-center">Your subscriptions</h3>
     \{{#each packages}}
-
-          <article class="output__item">
-            <div class="output__item--text">
-              <h3>\{{ type }}</h3>
-              <p>\{{ name }}</p>
-              <p>&pound; \{{ cost }}</p>
-            </div>
-          </article>
-          \{{/each}}
-
-    <p>Total for this subscription &pound; \{{ packagesTotal }}</p>
+        <article class="output__item">
+          <div class="output__item--text">
+            <h3 class="text-uppercase">\{{ type }}</h3>
+            <p>Total cost for \{{ type }} package &pound; \{{ cost }}</p>
+          </div>
+        </article>
+    \{{/each}}
+    <p>Total for this subscription <strong>&pound; \{{ packagesTotal }}</strong></p>
   </section>
-  <section class="output__item--wrap">
-    <h3 class="text-right">Your skyStore</h3>
+  <section class="output__item--wrap col-md-4 col-xs-12">
+    <h3 class="text-center">Your skyStore</h3>
       \{{#each storeRentals}}
         <article class="output__item">
             <div class="output__item--text">
-              <h2>Movie title: \{{ title }}</h2>
-              <p>&pound; \{{ cost }}</p>
+              <h3>Movie title: \{{ title }}</h3>
+              <p>Total cost for this package &pound; \{{ cost }}</p>
             </div>
         </article>
       \{{/each}}
@@ -61,11 +58,11 @@
         <article class="output__item">
             <div class="output__item--text">
               <h2>Movie title: \{{ title }}</h2>
-              <p>&pound; \{{ cost }}</p>
+              <p>Total cost for this package &pound; \{{ cost }}</p>
             </div>
         </article>
       \{{/each}}
-    <p>Total for this subscription &pound; \{{ storeTotal }}</p>
+      <p>Total for this subscription <strong>&pound; \{{ storeTotal }}</strong></p>
   </section>
 </script>
-<section class="output"></section>
+<section class="output row"></section>

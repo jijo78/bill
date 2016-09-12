@@ -29,7 +29,7 @@
         var _this = this,
             queryEndPoint = 'https://still-scrubland-9880.herokuapp.com/bill.json';
 
-        _this.queryResults.classList.add('spinner');
+        _this.bill.classList.add('spinner');
 
         //Wrapping in a setTimeout function so we can clear if we have a type delay
         //and not have multiple search going on.
@@ -41,7 +41,7 @@
               dataType: 'json',
               success: function ( data ) {
                 dataSuccess(data);
-                _this.queryResults.classList.remove('spinner');
+                _this.bill.classList.remove('spinner');
               },
               error: function ( error ) {
                 dataError( error );
@@ -54,9 +54,13 @@
               return;
             }
 
-            _this.queryResults.classList.remove('spinner');
+            _this.bill.classList.remove('spinner');
 
-            var callTotal = [],
+            var call,
+                subscription,
+                rental,
+                buy,
+                callTotal = [],
                 packagesTotal = [],
                 skyStoreTotalRentals = [],
                 skyStoreTotalBuyAndKeep = [],
@@ -76,21 +80,11 @@
                 },
                 html;
 
-            data.callCharges.calls.forEach( function( call ) {
-              callTotal.push(call);
-            });
-
-            data.package.subscriptions.forEach( function( subscription ) {
-              packagesTotal.push(subscription);
-            });
-
-            data.skyStore.rentals.forEach( function( rental ) {
-              skyStoreTotalRentals.push(rental);
-            });
-
-            data.skyStore.buyAndKeep.forEach( function( buy ) {
-              skyStoreTotalBuyAndKeep.push(buy);
-            });
+            //calling the dataLoop helper function to work with ou
+            _this.dataLoop( data.callCharges.calls, call, callTotal);
+            _this.dataLoop( data.package.subscriptions, subscription, packagesTotal);
+            _this.dataLoop( data.skyStore.rentals, rental, skyStoreTotalRentals);
+            _this.dataLoop( data.skyStore.buyAndKeep, buy, skyStoreTotalBuyAndKeep);
 
             //Handlebars to update the view
 
@@ -106,12 +100,12 @@
     };
 
     /**
-     * addEvent is an helper function that addEventListener to an element
-     * @param  {[array]}   arr          Array
+     * dataLoop is an helper function that loop over the data returned.
+     * @param  {[type]}   arr          Array
      * @param  {[type]}   callBackArg   String
-     * @param  {[array]} newArr        Array
+     * @param  {[type]}   newArr        Array
      */
-    CustomerBill.prototype.data = function ( arr, callBackArg ,newArr ) {
+    CustomerBill.prototype.dataLoop = function ( arr, callBackArg ,newArr ) {
       arr.forEach( function( callBackArg ) {
         newArr.push(callBackArg);
       });
