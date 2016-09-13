@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "postinstall": "grunt ci",
-    "test": "./node_modules/.bin/mocha --reporter spec"
+    "test": "./node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",

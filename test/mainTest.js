@@ -1,10 +1,12 @@
-var chai = require('chai');
+var expect = chai.expect;
 var assert = chai.assert;
 
-describe('Array', function() {
-  it('should start empty', function() {
-    var arr = [];
+describe("Customer Bill Tests", function() {
+  describe("Should initialize a new object.", function() {
+    it("Object should exist", function() {
 
-    assert.equal(arr.length, 0);
+      var bill = new CustomerBill();
+      expect(bill).to.be.called
+    });
   });
 });

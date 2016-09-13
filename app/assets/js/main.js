@@ -1,4 +1,4 @@
-(function () {
+ (function (exports) {
   /**
    * This is the CustomerBill constructor
    * @constructor
@@ -9,7 +9,6 @@
 
     function CustomerBill() {
       var _this = this;
-
       //global elements.
       this.billView = document.querySelector( '.bill__view' );
       this.bill = document.querySelector('.bill');
@@ -17,8 +16,10 @@
       this.error = document.querySelector('.bill__error-msg');
       this.errorMsg = 'Sorry we are experiencing some techinical problem. Please try later';
 
-      //call the addEvent method
-      this.addEvent( this.billView, 'click', this.getQuery.bind(_this) );
+      //call the addEvent method and check element it is not null or undefined
+      if(this.billView){
+        this.billView.addEventListener( 'click', this.getQuery.bind(_this) );
+      }
 
     }
 
@@ -80,14 +81,13 @@
                 },
                 html;
 
-            //calling the dataLoop helper function to work with ou
+            //calling the dataLoop helper function to work with our data set
             _this.dataLoop( data.callCharges.calls, call, callTotal);
             _this.dataLoop( data.package.subscriptions, subscription, packagesTotal);
             _this.dataLoop( data.skyStore.rentals, rental, skyStoreTotalRentals);
             _this.dataLoop( data.skyStore.buyAndKeep, buy, skyStoreTotalBuyAndKeep);
 
             //Handlebars to update the view
-
             html = template( context );
             _this.queryResults.innerHTML = html;
             _this.error.innerHTML = '';
@@ -111,19 +111,7 @@
       });
     };
 
-    /**
-     * addEvent is an helper function that addEventListener to an element
-     * @param  {[type]}   el          HTMLelement
-     * @param  {[type]}   typeOfevent Event
-     * @param  {Function} fn          Function
-     */
-    CustomerBill.prototype.addEvent = function ( el, typeOfevent ,fn ) {
-      el.addEventListener( typeOfevent, function ( event ) {
-        event.preventDefault();
-        event.stopPropagation();
-        fn();
-      });
-    };
-
+    //need to export the constructor to be able to unit test it.
+    exports.CustomerBill = CustomerBill;
     return new CustomerBill();
-} )();
+} )(this);

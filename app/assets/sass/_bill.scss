@@ -1,20 +1,11 @@
 .bill{
   .bill__masthead{
       display: flex;
-      .bill__user-info{
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        li{
-          padding: 0 $size-small;
-        }
-      }
       .bill__logo{
-        width:20%;
+        width:25%;
         height:100%;
       }
   }
-
   .bill__bundle{
     background-color: $light-blue;
     color: #fff;

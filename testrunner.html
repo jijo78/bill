@@ -8,16 +8,24 @@
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
     <script src="node_modules/chai/chai.js"></script>
-    <script>mocha.setup('bdd')</script>
+
+    <script>
+      mocha.setup('bdd');
+      mocha.reporter('html');
+    </script>
 
     <!-- load code you want to test here -->
-    <script src="js/main.js"></script>
+    <script src="app/assets/js/main.js"></script>
 
     <!-- load your test files here -->
     <script src="test/mainTest.js"></script>
 
     <script>
+    if (window.mochaPhantomJS) {
+      mochaPhantomJS.run();
+    }else {
       mocha.run();
+    }
     </script>
   </body>
 </html>

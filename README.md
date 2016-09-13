@@ -6,3 +6,6 @@
 * grunt
 * npm start or nodemon
 * http://localhost:3000/
+
+##To test
+* from terminal run open testrunner.html

@@ -35,10 +35,21 @@ h2 {
 }
 
 .spinner{
-	background-image: url("http://loadinggif.com/images/image-selection/3.gif");
-	background-size: 64px 64px;
+	background-image: url("http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/images/loader-large.gif");
+	background-size: 128px 128px;
 	background-position:center 0;
 	background-repeat: no-repeat;
+}
+
+.user_info{
+	display: flex;
+	li{
+		padding: 0 0 0 $size-small;
+		display: flex;
+		.inner-content{
+			padding-left: $size-small;
+		}
+	}
 }
 
 a {

@@ -1,54 +1,32 @@
 <script id="output-results" type="text/x-handlebars-template">
-  <section class="output__item--wrap">
-    <ul>
-      <li>Bill due: <strong>\{{ billDue }}</strong></li>
-      <li>From: <strong>\{{ billFrom }}</strong></li>
-      <li>To: <strong>\{{ billTo }}</strong></li>
+  <section class="output__item--wrap col-xs-12 col-sm-12" tabindex="0">
+    <ul role="list" class="user_info">
+      <li>Bill due: <strong class="inner-content"> \{{ billDue }}</strong></li>
+      <li>From: <strong class="inner-content"> \{{ billFrom }}</strong></li>
+      <li>To: <strong class="inner-content"> \{{ billTo }}</strong></li>
     </ul>
-    <h2>Total for this month &pound; \{{ total }}</h2>
+    <p class="h1">Total for this month &pound; \{{ total }}</p>
   </section>
-  <section class="output__item--wrap col-md-4 col-xs-12">
-    <h3 class="text-center">Call Charges</h3>
-    <div class="table-responsive">
-      <table class="table table-striped">
-        <thead>
-          <tr class="info">
-            <th class="text-center">Number called</th>
-            <th class="text-center">Call duration</th>
-            <th class="text-center">Call cost</th>
-          </tr>
-        </thead>
-        <tbody>
-          \{{#each calls}}
-          <tr class="info">
-            <td>\{{ called }}</td>
-            <td>\{{ duration }}</td>
-            <td> &pound; \{{ cost }}</td>
-          </tr>
-        \{{/each}}
-        </tbody>
-      </table>
-    </div>
-    <p >Total for your calls <strong>&pound; \{{ callsTotal }}</strong></p>
-  </section>
-  <section class="output__item--wrap col-md-4 col-xs-12">
+
+  <section class="output__item--wrap col-xs-12 col-sm-4" tabindex="0">
     <h3 class="text-center">Your subscriptions</h3>
     \{{#each packages}}
         <article class="output__item">
           <div class="output__item--text">
-            <h3 class="text-uppercase">\{{ type }}</h3>
+            <h2 class="text-uppercase">\{{ type }}</h2>
             <p>Total cost for \{{ type }} package &pound; \{{ cost }}</p>
           </div>
         </article>
     \{{/each}}
-    <p>Total for this subscription <strong>&pound; \{{ packagesTotal }}</strong></p>
+    <p class="h4">Total cost <strong>&pound; \{{ packagesTotal }}</strong></p>
   </section>
-  <section class="output__item--wrap col-md-4 col-xs-12">
+
+  <section class="output__item--wrap col-xs-12 col-sm-4" tabindex="0">
     <h3 class="text-center">Your skyStore</h3>
       \{{#each storeRentals}}
         <article class="output__item">
             <div class="output__item--text">
-              <h3>Movie title: \{{ title }}</h3>
+              <h2>Movie title: \{{ title }}</h2>
               <p>Total cost for this package &pound; \{{ cost }}</p>
             </div>
         </article>
@@ -62,7 +40,32 @@
             </div>
         </article>
       \{{/each}}
-      <p>Total for this subscription <strong>&pound; \{{ storeTotal }}</strong></p>
+      <p class="h4">Total cost <strong>&pound; \{{ storeTotal }}</strong></p>
+  </section>
+
+  <section class="output__item--wrap col-xs-12 col-sm-4" tabindex="0">
+    <h3 class="text-center">Call Charges</h3>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr class="info">
+            <th class="text-center">Number</th>
+            <th class="text-center">Duration</th>
+            <th class="text-center">Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          \{{#each calls}}
+          <tr class="info">
+            <td>\{{ called }}</td>
+            <td>\{{ duration }}</td>
+            <td> &pound; \{{ cost }}</td>
+          </tr>
+        \{{/each}}
+        </tbody>
+      </table>
+    </div>
+    <p class="h4">Total cost <strong>&pound; \{{ callsTotal }}</strong></p>
   </section>
 </script>
-<section class="output row"></section>
+<section class="output row" id="content"></section>
