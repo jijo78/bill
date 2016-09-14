@@ -31,7 +31,8 @@
     "express-handlebars": "*",
     "express": "^4.13.4",
     "mocha": "^3.0.2",
-    "chai": "^3.5.0"
+    "chai": "^3.5.0",
+    "sinon": "^1.17.5"
   },
   "devDependencies": {
     "chai": "^3.5.0",
@@ -42,7 +43,8 @@
     "grunt-exec": "^0.4.7",
     "grunt-sass": "^1.2.0",
     "mocha": "^3.0.2",
-    "nodemon": "^1.9.2"
+    "nodemon": "^1.9.2",
+    "sinon": "^1.17.5"
   },
   "engines": {
     "node": "0.12.0",

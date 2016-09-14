@@ -3,11 +3,18 @@
   <head>
     <title>Mocha Tests</title>
     <link rel="stylesheet" href="node_modules/mocha/mocha.css">
-  </head>
+    <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+
+</head>
   <body>
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
     <script src="node_modules/chai/chai.js"></script>
+    <script src="node_modules/chai-spies/chai-spies.js"></script>
+    <script src="node_modules/sinon/lib/sinon.js"></script>
+    <script src="node_modules/sinon/lib/sinon/extend.js"></script>
+    <script src="node_modules/sinon/lib/sinon/spy.js"></script>
 
     <script>
       mocha.setup('bdd');
