@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "postinstall": "grunt ci",
-    "test": "./node_modules/.bin/mocha"
+    "test": "node ./node_modules/mocha-phantomjs/bin/mocha-phantomjs testrunner.html"
   },
   "repository": {
     "type": "git",
@@ -32,7 +32,8 @@
     "express": "^4.13.4",
     "mocha": "^3.0.2",
     "chai": "^3.5.0",
-    "sinon": "^1.17.5"
+    "sinon": "^1.17.5",
+    "mocha-phantomjs": "^4.1.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
@@ -42,7 +43,9 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-exec": "^0.4.7",
     "grunt-sass": "^1.2.0",
+    "jquery": "^3.1.0",
     "mocha": "^3.0.2",
+    "mocha-phantomjs": "^4.1.0",
     "nodemon": "^1.9.2",
     "sinon": "^1.17.5"
   },

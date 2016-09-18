@@ -1,15 +1,18 @@
 .bill{
   .bill__masthead{
       display: flex;
-      .bill__logo{
-        width:25%;
-        height:100%;
-      }
+    .bill__logo{
+      width:25%;
+      height:100%;
+    }
   }
   .bill__bundle{
     background-color: $light-blue;
     color: #fff;
-    min-height: 300px;
+    margin-bottom:  $size-large;
+    .bill__bundle--content{
+      padding: $size-large;
+    }
     .bill__bundle--media{
       img{
         width: 100%;

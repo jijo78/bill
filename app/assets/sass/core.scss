@@ -43,8 +43,9 @@ h2 {
 
 .user_info{
 	display: flex;
+	flex-direction: column;
+	margin-bottom: $size-small;
 	li{
-		padding: 0 0 0 $size-small;
 		display: flex;
 		.inner-content{
 			padding-left: $size-small;
