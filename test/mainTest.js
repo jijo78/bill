@@ -39,7 +39,7 @@ describe("Customer Bill Tests", function() {
       };
 
     describe("CustomerBill constructor.", function() {
-      it("Object should exist when initialized.", function() {
+      it("should exist when initialized.", function() {
         var spy = sinon.spy(window, 'CustomerBill');
         var bill = new CustomerBill();
 
@@ -84,6 +84,15 @@ describe("Customer Bill Tests", function() {
           this.requests[0].respond(400);
         });
 
+        it('should return error on a 400 Bad Request.', function(done) {
+          bill.getQuery(function(err) {
+              err.should.exist;
+              done();
+          });
+
+          this.requests[0].respond(400);
+        });
+
         it('should return an error on a 500 Internal Server Error.', function(done) {
             bill.getQuery(function(err) {
                 err.should.exist;
@@ -97,9 +106,7 @@ describe("Customer Bill Tests", function() {
 
       describe('dataLoop method.', function() {
         it('should throw an error if called with no arguments.', function(done) {
-          var spy = chai.spy(bill, 'dataLoop');
-
-          expect(spy).to.throw(Error);
+          expect(bill.dataLoop).to.throw();
           done();
         });
 
@@ -112,5 +119,13 @@ describe("Customer Bill Tests", function() {
           spy.firstCall.args;
           done();
         });
+      });
+
+      describe('dataSuccess method.', function() {
+        it('should throw an error if called with no data.', function(done) {
+          expect(bill.dataSuccess).to.throw();
+          done();
+        });
+
       });
   });

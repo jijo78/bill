@@ -57,7 +57,16 @@ module.exports = function(grunt) {
                     src: ['**'],
                     dest: '<%=outputPath%>/js',
                 }]
-            }
+            },
+            assets: {
+                expand: true,
+                flatten: true,
+                cwd: '<%=staticPath%>/assets/images',
+                src: [
+                    '**'
+                ],
+                dest: '<%=outputPath%>/img'
+            },
         }
     });
 

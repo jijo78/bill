@@ -9,14 +9,17 @@
     function CustomerBill() {
       var _this = this;
 
-      //global elements.
+      //Global element.
       this.billView = document.querySelector( '.bill__view' );
       this.bill = document.querySelector('.bill');
       this.queryResults = document.querySelector( '.output' );
-      this.error = document.querySelector('.bill__error-msg');
       this.queryEndPoint = 'https://still-scrubland-9880.herokuapp.com/bill.json';
 
-      //call the addEvent method and check element it is not null or undefined
+      /**
+       * [if this.billView exist]
+       * @param  {[HTMLElement]} this.billView [click event listener]
+       * @return {[Function]}               [callback]
+       */
       if(this.billView){
         this.billView.addEventListener( 'click', function(){
           _this.getQuery(_this.dataSuccess.bind(_this));
@@ -85,7 +88,7 @@
           newArr.push(callBackArg);
         });
       } else{
-        throw new Error('Missing argument or argument is of the wrong type.');
+        throw new Error('Missing Argument or Argument is of the wrong type.');
       }
     };
 
@@ -97,7 +100,7 @@
 
       //lets check we have some data back, and the data is the right format before we proceed.
       if(!data && data !=='object'){
-        throw new Error('Missing data');
+        throw new Error('Missing data.');
       }
 
       var _this = this,
@@ -114,17 +117,13 @@
           html,
           str ='';
 
-      //lets remove the spinner once we have data succesfully back.
-      if(_this.bill){
-        _this.bill.classList.remove('spinner');
-      }
-
       //calling the dataLoop helper function to work with our data set
-      _this.dataLoop( data.callCharges.calls, call, callTotal);
-      _this.dataLoop( data.package.subscriptions, subscription, packagesTotal);
-      _this.dataLoop( data.skyStore.rentals, rental, skyStoreTotalRentals);
-      _this.dataLoop( data.skyStore.buyAndKeep, buy, skyStoreTotalBuyAndKeep);
-
+      if(_this.dataLoop){
+        _this.dataLoop( data.callCharges.calls, call, callTotal);
+        _this.dataLoop( data.package.subscriptions, subscription, packagesTotal);
+        _this.dataLoop( data.skyStore.rentals, rental, skyStoreTotalRentals);
+        _this.dataLoop( data.skyStore.buyAndKeep, buy, skyStoreTotalBuyAndKeep);
+      }
       //Handlebars to update the view with the right data.
       template = Handlebars.compile( $( '#output-results' ).html() );
       context = {
@@ -142,7 +141,11 @@
       };
       html = template( context );
       _this.queryResults.innerHTML = html;
-      _this.error.innerHTML = '';
+
+      //lets remove the spinner once we have data succesfully back.
+      if(_this.bill){
+        _this.bill.classList.remove('spinner');
+      }
     };
 
     //need to export the constructor to be able to unit test it.
