@@ -8,4 +8,4 @@
 * http://localhost:3000/
 
 ##To test
-* from terminal run open testrunner.html
+* from terminal run npm test

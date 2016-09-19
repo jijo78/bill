@@ -15,7 +15,7 @@ module.exports = function(grunt) {
                 quotmark: true, // Enforce double quotes
                 globals: {
                     $: false, //Grunt doesn't know $ is declared in jquery, so keep getting undefined, this line fixes it.
-                    Handlebars: false
+                    Handlebars: true
                 }
             }
         },
