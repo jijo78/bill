@@ -1,4 +1,4 @@
-# bbc-test
+# Customer Bill exercise
 ##To checkout
 * git clone git@github.com:jijo78/bill.git
 
